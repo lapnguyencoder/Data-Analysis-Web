@@ -21,7 +21,7 @@ def draw_big_ben_clock():
 
     # Thiết lập các vạch giờ theo chiều ngược kim đồng hồ
     ax.set_xticks(np.linspace(0, 2 * np.pi, 12, endpoint=False))
-    ax.set_xticklabels(['12', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'], fontsize=15, color='black')
+    ax.set_xticklabels(['12', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'], fontsize=15, color='gold')
 
     # Đặt số 12 ở vị trí trên cùng (đỉnh) bằng cách xoay trục
     ax.set_theta_offset(np.pi / 2)  # Xoay trục để số 12 nằm trên cùng
@@ -51,7 +51,7 @@ def draw_big_ben_clock():
     for i in range(60):
         angle = 2 * np.pi * (i / 60)
         radius = 0.95 if i % 5 != 0 else 0.85
-        ax.plot(angle, radius, marker='o', color='yellow', markersize=5 if i % 5 != 0 else 8)
+        ax.plot(angle, radius, marker='o', color='gold', markersize=5 if i % 5 != 0 else 8)
 
     # Lưu hình ảnh vào bộ nhớ
     buf = BytesIO()
