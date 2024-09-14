@@ -9,7 +9,10 @@ import time
 def draw_big_ben_clock():
     # Lấy thời gian hiện tại
     now = datetime.datetime.now()
-    hours, minutes, seconds = now.hour % 12, now.minute, now.second
+    hours, minutes, seconds = now.hour, now.minute, now.second
+
+    # Đảm bảo giờ được hiển thị theo định dạng 12 giờ (0-11)
+    hours = hours % 12
 
     # Tạo một biểu đồ tròn (hình đồng hồ)
     fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
