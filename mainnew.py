@@ -5,7 +5,7 @@ import datetime
 from io import BytesIO
 import time
 
-# Hàm để vẽ đồng hồ kiểu Big Ben
+# Hàm để vẽ đồng hồ kiểu Big Ben với màu nền và màu số đã chỉnh sửa
 def draw_big_ben_clock():
     # Lấy thời gian hiện tại
     now = datetime.datetime.now()
@@ -19,9 +19,10 @@ def draw_big_ben_clock():
     ax.set_ylim(0, 1)
     ax.set_yticklabels([])  # Ẩn các nhãn trên trục y
 
-    # Thiết lập các vạch giờ theo chiều ngược kim đồng hồ
+    # Thiết lập các vạch giờ theo chiều ngược kim đồng hồ với màu vàng
     ax.set_xticks(np.linspace(0, 2 * np.pi, 12, endpoint=False))
-    ax.set_xticklabels(['12', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'], fontsize=15, color='gold')
+    ax.set_xticklabels(['12', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'], 
+                       fontsize=15, color='blue')  # Thay đổi màu các con số thành xanh dương
 
     # Đặt số 12 ở vị trí trên cùng (đỉnh) bằng cách xoay trục
     ax.set_theta_offset(np.pi / 2)  # Xoay trục để số 12 nằm trên cùng
@@ -30,7 +31,7 @@ def draw_big_ben_clock():
     ax.set_theta_direction(-1)
 
     # Màu nền và khung cho đồng hồ
-    ax.set_facecolor('#f5f5f5')  # Màu nền trắng nhạt
+    ax.set_facecolor('#f0e68c')  # Màu nền vàng nhạt (khaki)
     ax.spines['polar'].set_visible(True)
     ax.spines['polar'].set_color('black')  # Viền đồng hồ đen
     ax.spines['polar'].set_linewidth(4)
@@ -60,7 +61,7 @@ def draw_big_ben_clock():
     return buf
 
 # Tạo giao diện với Streamlit
-st.title("Đồng hồ thời gian thực - Phong cách Big Ben")
+st.title("Đồng hồ thời gian của Pháp Sư")
 
 # Tạo một vùng trống để cập nhật hình ảnh
 image_placeholder = st.empty()
